@@ -2,5 +2,6 @@
 # Do not track the routes.
 # These are kept in Contact/Storage/Routes/web.php
 #
-Contact/Routes/*
-!Contact/Routes
+Routes/*
+Routes/web.php
+!Routes

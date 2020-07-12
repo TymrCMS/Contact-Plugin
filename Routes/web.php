@@ -9,5 +9,4 @@ Route::middleware(['web'])->namespace('Tymr\Plugins\Contact\Controllers')->group
 	Route::post('/Contact',  'ContactController@sendContactRequest')->name('app.contact.post');
 
 
-});
 
