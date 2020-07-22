@@ -13,7 +13,7 @@ class ContactPlugin extends Module implements Installable
     public $info = [
         'name'          => 'Contact',
         'description'   => 'Contact Module',      
-        'version'       => '1.0',
+        'version'       => '1.0.0',
         'slug'          => 'contact'
     ];
 
