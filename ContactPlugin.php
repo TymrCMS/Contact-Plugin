@@ -10,21 +10,21 @@ use Tymr\Modules\Navigation\Models\Link;
 
 class ContactPlugin extends Module implements Installable
 {
-    public $info = [
-        'name'          => 'Contact',
-        'description'   => 'Contact Module',      
-        'version'       => '1.0.0',
-        'slug'          => 'contact'
-    ];
+	public $info = [
+		'name'          => 'Contact',
+		'description'   => 'Contact Plugin',      
+		'version'       => '1.0.0',
+		'slug'          => 'contact'
+	];
 
-    protected $installer;
-    protected $seeder;
+	protected $installer;
+	protected $seeder;
 
-    public function __construct()
-    {
-        $this->seeder = new \Tymr\Plugins\Contact\Database\TymrSeeder();        
-        $this->installer = new \Tymr\Plugins\Contact\Database\TymrTables();
-    }
+	public function __construct()
+	{
+		$this->seeder = new \Tymr\Plugins\Contact\Database\TymrSeeder();        
+		$this->installer = new \Tymr\Plugins\Contact\Database\TymrTables();
+	}
 
 	public function help() : string
 	{
@@ -36,41 +36,23 @@ class ContactPlugin extends Module implements Installable
 		return $this->info;
 	}
 
-    public function install() : bool
-    {
-        
-        $route_file = app_path()."/Plugins/Contact/Storage/Routes/web.php";     
-        $new_route_file = app_path()."/Plugins/Contact/Routes/web.php";     
+	public function install() : bool
+	{
 
-        if( file_exists( $new_route_file ) ) 
-        {
-            unlink( $new_route_file );
-        }
+		$this->seeder->install();
 
-        copy( $route_file , $new_route_file );
+		$this->installer->up();
 
-        $this->seeder->install();
+		return true;
+	}
 
-        $this->installer->up();
+	public function uninstall() : bool
+	{
+		$this->installer->down();
 
-        return true;
-    }
+		$this->seeder->uninstall();
 
-    public function uninstall() : bool
-    {
-        
-        $route_file = app_path()."/Plugins/Contact/Routes/web.php";     
-
-        if( file_exists( $route_file ) ) 
-        {
-            unlink( $route_file );
-        }
-
-         $this->installer->down();
-
-         $this->seeder->uninstall();
-
-        return true;
-    }
+		return true;
+	}
    
 }
