@@ -111,7 +111,7 @@ class ContactController extends PublicController
 
 
 		// Did something go wrong?
-		if($method == null)
+		if($method == NULL)
 			return redirect()->back()->with('message', 'Oops something went wrong!');
 
 

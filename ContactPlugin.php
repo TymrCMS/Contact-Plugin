@@ -54,5 +54,20 @@ class ContactPlugin extends Module implements Installable
 
 		return true;
 	}
-   
+      
+	/**
+	 * This gets executed once the Admin_Controller is ready
+	 */
+	public static function run()
+	{
+		//
+	}
+		
+	/**
+	 * This should excecute once the ModuleServiceProvider Loads the module
+	 */
+	public static function bootstrap()
+	{
+		//
+	}
 }
