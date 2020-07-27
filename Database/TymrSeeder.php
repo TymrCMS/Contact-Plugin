@@ -94,6 +94,6 @@ class TymrSeeder
         Link::where('module','contact')->delete();
 
         // Remove settings where module is contact
-        \Tymr\Modules\Settings\Models\Settings::where('module','contact')->delete();
+        \Tymr\Models\Settings::where('module','contact')->delete();
     }
 }
