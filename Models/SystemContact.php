@@ -5,7 +5,7 @@ namespace Tymr\Plugins\Contact\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-use SettingsHelper;
+use TymrSetting;
 
 class SystemContact extends Model {
 
@@ -18,7 +18,7 @@ class SystemContact extends Model {
     {
         $this->admin = 'Administrator'; //use a config here or have out our settings in the DB
         
-        $this->email = SettingsHelper::value('contact_admin_email');
+        $this->email = TymrSetting::value('contact_admin_email');
     }
 
 }

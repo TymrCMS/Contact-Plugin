@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Route;
 
-use SettingsHelper;
+use TymrSetting;
 use Tymr\Http\Controllers\PublicController;
 use Tymr\Plugins\Contact\Models\SystemContact;
 
@@ -98,7 +98,7 @@ class ContactController extends PublicController
 
 
 		// Lets check whatr setting we need //"dbonly" "emailonly", "both"
-		$method = SettingsHelper::value('contact_method');
+		$method = TymrSetting::value('contact_method');
 
 
 		// Store the response in the databse
